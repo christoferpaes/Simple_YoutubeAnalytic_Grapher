@@ -47,13 +47,66 @@ comments = []
 likes = [] 
 views = []
 timeRecorded = []
+
 filename = [] 
 fileContet_Obj = fileContents()
 
+youtubeApiKey= "" ## api key from your youtube developer account 
+youtube=discovery.build('youtube', 'v3', developerKey=youtubeApiKey) # setting what is returned from the build function to 'youtube' 
+## set the "q" parameter dynamically or hard code it, for example q ="CNN", which is the channel you search by. 
+snippets = youtube.search().list(part="snippet", type="channel", q="").execute() ## setting a variable to a list of youtube search, set via pass in parameters from 'list()'
+channelId = snippets['items'][0]['snippet']['channelId'] # setting the variable channelId to the first records' channelId 
+content = youtube.channels().list(id = channelId, part='contentDetails').execute() # return the content details 
+uploadId = content['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+
+allVideos = []
+
+# setting the nextPage token to none
+nextPage_token = None
+
+res = youtube.playlistItems().list(playlistId = uploadId, maxResults = 50, part='snippet', pageToken = nextPage_token).execute()
+
+while 1:
+  res = youtube.playlistItems().list(playlistId = uploadId, maxResults = 50, part='snippet', pageToken = nextPage_token).execute()
+  allVideos += res['items']
+  nextPage_token = res.get('nextPage_token')## the  next page token is used to check for the next page 
+  print(nextPage_token)
+  if nextPage_token is None:
+    break
+
+video_ids = list(map(lambda x:x['snippet']['resourceId']['videoId'], allVideos))
+
+stats = []
+
+## setting up the  loop for grabbing and appending the statistics part of the youtube JSON 
+
+#
+for i in range(0,len(video_ids), 200):
+  res = (youtube).videos().list(id=','.join(video_ids[i:i+100]), part='statistics').execute()
+  stats += res['items']
+
+## arrays for the youtube data from JSON
+title= []
+liked = []
+viewCount = []
+commentCount = []
+timeCurrentForEveryVideo = []
 
 
-# Function for opening the
-# file explorer window
+
+for i in range(30):
+  i += 1
+  title.append((allVideos[i])['snippet']['title'])
+  viewCount.append(int((stats[i])['statistics']['viewCount']))
+  liked.append(int((stats[i])['statistics']['likeCount']))
+  commentCount.append(int((stats[i]) ['statistics']['commentCount']))
+  timeCurrentForEveryVideo.append(time.strftime("%H:%M:%S"))
+  
+
+data = {'title':title, 'viewCount' :viewCount, 'likes':liked, 'commentcount' : commentCount,'CurrentTime':timeCurrentForEveryVideo} ## this is for appending columns and rows to the table
+
+
+
 def rateOfChage(y2,y1,x2,x1):
   rate = (y2 - y1)/ (x2- x1)
   return rate
