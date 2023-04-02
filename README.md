@@ -1,6 +1,7 @@
 
 <font size="1">
- Simple_YoutubeAnalytic_Grapher
+<span style="color:green">
+ Simple_YoutubeAnalytic_Grapher </span>
 Takes the youtube API and graphs the values. 
 <font size="1">
  This is a simple youtube analytic grapher.
