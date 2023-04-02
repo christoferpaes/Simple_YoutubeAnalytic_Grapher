@@ -3,7 +3,7 @@
  Simple_YoutubeAnalytic_Grapher
 Takes the youtube API and graphs the values. 
 <font size="1">
- This is a simply youtube analytic grapher.
+ This is a simple youtube analytic grapher.
 <font size="1">
  to use the youtube API. The user is going to need to generate a youtube developer api key . 
 <font size="1">
