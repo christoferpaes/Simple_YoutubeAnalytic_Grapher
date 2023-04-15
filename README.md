@@ -14,6 +14,5 @@ Takes the youtube API and graphs the values.
 
 
 <font size = "1" > 
-youtubeApiKey= ""  # set this variable to your personal developer API key. 
-snippets = youtube.search().list(part="snippet", type="channel", q="").execute() 
-# in this line about under the "q" parameter set it to a channel hardcoded or do it dynamically 
+*youtubeApiKey= ""  # set this variable to your personal developer API key. 
+*snippets = youtube.search().list(part="snippet", type="channel", q="").execute() # in this line about under the "q" parameter set it to a channel hardcoded or do it dynamically 
