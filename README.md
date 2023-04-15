@@ -13,6 +13,7 @@ Takes the youtube API and graphs the values.
 ** please note that this will not work unless you provide your API key for the variable and set the q parameter in the build method for the discovery object
 
 
-
+<font size = "1" > 
+youtubeApiKey= ""  # set this variable to your personal developer API key. 
 snippets = youtube.search().list(part="snippet", type="channel", q="").execute() 
 # in this line about under the "q" parameter set it to a channel hardcoded or do it dynamically 
