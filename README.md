@@ -6,7 +6,7 @@ Takes the youtube API and graphs the values.
 <font size="1">
  This is a simple youtube analytic grapher.
 <font size="1">
- To use the youtube API the user is going to need to generate a youtube developer api key . 
+ To use the youtube API the user is going to need to generate a youtube developer api key . This was simple project for me to get some practice with the python language.
 <font size="1">
 </font>
 
