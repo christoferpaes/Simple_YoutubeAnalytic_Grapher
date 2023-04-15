@@ -8,6 +8,6 @@ Takes the youtube API and graphs the values.
 <font size="1">
  To use the youtube API the user is going to need to generate a youtube developer api key . 
 <font size="1">
- The app is meant to use a variety of libraries and I m attempting to provide a way for tkinter to work with altair vega, if that is at all possible. If not, then just use the alt_viewer </font>
+</font>
 
 ** please note that this will not work unless you provide your API key for the variable and set the q parameter in the build method for the discovery object
