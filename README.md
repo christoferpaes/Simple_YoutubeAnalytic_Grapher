@@ -1,4 +1,12 @@
 
+This project is licensed under the [MIT/GPL/Apache 2.0/etc.] License. See the LICENSE file for details.
+
+You may use or modify this project under the terms of the license. Attribution is required.
+
+Unauthorized reproduction, redistribution, or misrepresentation of this work as your own is prohibited.
+
+
+
 <font size="1">
 <span style="color:green">
  Simple_YoutubeAnalytic_Grapher </span>
